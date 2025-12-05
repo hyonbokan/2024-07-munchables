@@ -3,7 +3,7 @@ name: Quick Scan CI Test
 on:
   pull_request:
     branches:
-      - test
+      - main
 
 jobs:
   quick-scan:
