@@ -1,0 +1,31 @@
+name: Quick Scan CI Test
+
+on:
+  pull_request:
+    branches:
+      - test
+
+jobs:
+  quick-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    env:
+      AUDIT_AGENT_TOKEN: ${{ secrets.AUDIT_AGENT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Quick Scan
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -H "X-Api-Key: $AUDIT_AGENT_TOKEN" \
+            -d '{
+              "githubUrl": "${{ github.event.repository.html_url }}",
+              "branchName": "${{ github.event.pull_request.head.ref }}",
+              "issueNumber": ${{ github.event.number }},
+              "commitHash": "${{ github.event.pull_request.head.sha }}",
+              "contractFiles": ["LandManager.sol"],
+              "github_token": "${{ secrets.GITHUB_TOKEN }}"
+            }' \
+            https://YOUR_NGROK_URL.ngrok-free.app/api/v1/scanner/quick-scan/launch
