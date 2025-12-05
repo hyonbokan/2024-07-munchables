@@ -28,4 +28,4 @@ jobs:
               "contractFiles": ["LandManager.sol"],
               "github_token": "${{ secrets.GITHUB_TOKEN }}"
             }' \
-            https://faefe393d930.ngrok-free.app/api/v1/scanner/quick-scan/launch
+            https://534cd57387c8.ngrok-free.app/api/v1/scanner/quick-scan/launch

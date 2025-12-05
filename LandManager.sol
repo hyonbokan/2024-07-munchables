@@ -342,7 +342,6 @@ contract LandManager is BaseBlastManagerUpgradeable, ILandManager {
     }
 
     function _getNumPlots(address _account) internal view returns (uint256) {
-        result = lockManager.getLockedWeightedValue(_account) / PRICE_PER_PLOT;
-        return result;
+        return lockManager.getLockedWeightedValue(_account) / PRICE_PER_PLOT;
     }
 }
