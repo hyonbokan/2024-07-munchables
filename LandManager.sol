@@ -328,20 +328,3 @@ contract LandManager is BaseBlastManagerUpgradeable, ILandManager {
 
         if (!found) revert InvalidTokenIdError();
     }
-
-    function _getMainAccountRequireRegistered(
-        address _account
-    ) internal view returns (address, MunchablesCommonLib.Player memory) {
-        (
-            address _mainAccount,
-            MunchablesCommonLib.Player memory _player
-        ) = accountManager.getPlayer(_account);
-
-        if (_player.registrationDate == 0) revert PlayerNotRegisteredError();
-        return (_mainAccount, _player);
-    }
-
-    function _getNumPlots(address _account) internal view returns (uint256) {
-        return lockManager.getLockedWeightedValue(_account) / PRICE_PER_PLOT;
-    }
-}
