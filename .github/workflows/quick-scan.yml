@@ -17,5 +17,5 @@ jobs:
                 "branchName": "${{ github.event.pull_request.head.ref }}",
                 "issueNumber": ${{ github.event.number }},
                 "commitHash": "${{ github.event.pull_request.head.sha }}",
-                "contractFiles": ["src/managers/LandManager.sol"]
+                "contractFiles": ["LandManager.sol"]
               }' \https://api.auditagent.staging-nethermind.xyz/api/v1/scanner/quick-scan/launch
