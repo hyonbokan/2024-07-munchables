@@ -18,4 +18,4 @@ jobs:
                 "issueNumber": ${{ github.event.number }},
                 "commitHash": "${{ github.event.pull_request.head.sha }}",
                 "contractFiles": ["LandManager.sol"]
-              }' \https://af9cfabcf5e9.ngrok-free.app/api/v1/scanner/quick-scan/launch
+              }' https://442823027624.ngrok-free.app/api/v1/scanner/quick-scan/launch
