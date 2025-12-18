@@ -7,12 +7,12 @@ jobs:
     quick-scan:
       runs-on: ubuntu-latest
       env:
-        AUDIT_AGENT_TOKEN: ${{ secrets.AUDIT_AGENT_TOKEN }}
+        AUDIT_AGENT_TOKEN: ${{ secrets.AUDIT_AGENT_LOCAL_DEV }}
       steps:
         - uses: actions/checkout@v4
         - name: Quick Scan
           run: |
-            curl -X POST \-H "Content-Type: application/json" \-H "X-Api-Key: $AUDIT_AGENT_TOKEN" \-d '{
+            curl -X POST \-H "Content-Type: application/json" \-H "X-Api-Key: $AUDIT_AGENT_LOCAL_DEV" \-d '{
                 "githubUrl": "${{ github.event.repository.html_url }}",
                 "branchName": "${{ github.event.pull_request.head.ref }}",
                 "issueNumber": ${{ github.event.number }},
