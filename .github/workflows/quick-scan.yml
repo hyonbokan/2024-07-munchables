@@ -7,7 +7,7 @@ jobs:
     quick-scan:
       runs-on: ubuntu-latest
       env:
-        AUDIT_AGENT_TOKEN: ${{ secrets.AUDIT_AGENT_LOCAL_DEV }}
+        AUDIT_AGENT_TOKEN: ${{ secrets.AUDIT_AGENT}}
       steps:
         - uses: actions/checkout@v4
         - name: Quick Scan
